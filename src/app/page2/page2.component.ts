@@ -49,11 +49,11 @@ export class Page2Component implements OnInit, AfterViewInit  {
       const body = JSON.stringify(this.questions);
       this.httpClient.post('https://5b3943cfcda47d5c7885c5e06e3d8361.m.pipedream.net', body)
         .subscribe(response => {
-          const message = 'Анкету получил. Готовь попку, детка))';
+          const message = 'Анкету получила';
           const action = 'Успешно!';
           if (response) {
             this.snackBar.open(message, action, {
-              duration: 11500,
+              duration: 15000,
             });
             this.pageToShowEvent.emit(3);
           }

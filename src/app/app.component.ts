@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public title = 'Анкета раба';
   startForm: FormGroup;
   questions: Question[];
-  rightPassword = '777333';
+  rightPassword;
   public pageToShow: number;
 
   constructor(private httpClient: HttpClient,
@@ -22,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.rightPassword = new Date().getDate() * 777;
     this.pageToShow = 0;
     this.startForm = this.formBuilder.group({
       password: ['', this.passWordValidator]
@@ -48,7 +49,6 @@ export class AppComponent implements OnInit, OnDestroy {
           question.text = '';
           this.questions.push(question);
         }
-        console.log(this.questions);
       });
 
 
@@ -68,14 +68,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   goToPage1() {
     this.questionsService.questionsReplaySubject.next(this.questions);
-    if (this.startForm.get('password').value === this.rightPassword) {
+    if (this.startForm.get('password').value === this.rightPassword.toString()) {
       this.pageToShow = 1;
     }
   }
 
-
   passWordValidator(control: AbstractControl) {
-    if (control.value !== 777333) {
+    if (control.value !== (new Date().getDate() * 777).toString()) {
       return {wrongPassword: true};
     }
     return null;
