@@ -48,17 +48,22 @@ export class PageResultComponent implements OnInit {
       });
 */
 
-    this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
+    this.httpClient.get('https://thingproxy.freeboard.io/fetch/https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
       , { headers })
       .subscribe(data => {
         console.log('profiles4', data);
       });
+/*    this.httpClient.get('https://thingproxy.freeboard.io/fetch/https://api.pipedream.com/v1/sources/dc_K0uwzaE'
+      , { headers })
+      .subscribe(data => {
+        console.log('profiles5', data);
+      });*/
   }
 
   getData(): Observable<any> {
     return from(
       fetch(
-        'https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event', // the url you are trying to access
+        'http://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event', // the url you are trying to access
         {
           headers: {
             'Content-Type': 'application/json',
