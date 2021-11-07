@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {from, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-page-result',
@@ -8,51 +9,40 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class PageResultComponent implements OnInit {
   @Output() pageToShowEvent = new EventEmitter<number>();
+  private authToken = '76c030ab71daae5908437a13af8bec91';
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-   // this.getProfiles();
-    this.getProfiles1();
+     this.getProfiles1();
   }
 
-/*  private getProfiles() {
-    const https = require('https');
-
-    const options = {
-      hostname: 'api.pipedream.com',
-      port: 443,
-      path: '/v1/sources/dc_lVunxp4/event_summaries',
-      headers: {
-        Authorization: 'Bearer <api_key>',
-      },
-    };
-
-    const req = https.request(options, resp => {
-      let data = '';
-      resp.on('data', chunk => {
-        data += chunk;
-      });
-      resp.on('end', () => {
-        console.log(JSON.parse(data));
-      });
-    }).on('error', err => {
-      console.error('[error] ' + err.message);
-    });
-    req.end();
-
-  }*/
 
   private getProfiles1() {
-    this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
-      , {
-        headers: new HttpHeaders({
-          'Authorization': 'Bearer 76c030ab71daae5908437a13af8bec91',
-          'Cache-Control': 'no-cache'
-        }),
-        responseType: 'json'
-      })
+    const headers = new HttpHeaders({
+      authorization: 'Bearer 76c030ab71daae5908437a13af8bec91',
+    });
+
+    this.httpClient.get('http://localhost:4200/api/sources/dc_lVunxp4/event_summaries?expand=event'
+   // this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
+      , { headers })
       .subscribe(data => {
-        console.log('profiles', data);
+        console.log('profiles1', data);
+      });
+
+    this.httpClient.get('https://goddess-regina.github.io/api/sources/dc_lVunxp4/event_summaries?expand=event'
+      // this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
+      , { headers })
+      .subscribe(data => {
+        console.log('profiles2', data);
+      });
+
+    this.httpClient.get('https://goddess-regina.github.io/slaveProfile/api/sources/dc_lVunxp4/event_summaries?expand=event'
+      // this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
+      , { headers })
+      .subscribe(data => {
+        console.log('profiles3', data);
       });
   }
+
+
 }

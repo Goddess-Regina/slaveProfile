@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
           .subscribe(data => {
             this.questions = [];
 
-        for (let i = 0; i < (data as Array<string>).length; i++) {
+            for (let i = 0; i < (data as Array<string>).length; i++) {
           const question = new Question();
           question.id = i + 1;
           question.text = data[i];
@@ -41,8 +41,8 @@ export class AppComponent implements OnInit, OnDestroy {
         }
 
         // добавляем собственные вопросы
-        const len = this.questions.length + 1;
-        for (let i = len; i < len + 3; i++) {
+            const len = this.questions.length + 1;
+            for (let i = len; i < len + 3; i++) {
           const question = new Question();
           question.id = i;
           question.isOwn = true;
