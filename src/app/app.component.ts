@@ -29,8 +29,8 @@ export class AppComponent implements OnInit, OnDestroy {
     });
 
     this.httpClient.get('assets/test.json', {responseType: 'json'})
-      .subscribe(data => {
-        this.questions = [];
+          .subscribe(data => {
+            this.questions = [];
 
         for (let i = 0; i < (data as Array<string>).length; i++) {
           const question = new Question();
@@ -70,6 +70,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.questionsService.questionsReplaySubject.next(this.questions);
     if (this.startForm.get('password').value === this.rightPassword.toString()) {
       this.pageToShow = 1;
+    }
+    if (this.startForm.get('password').value === '1311') {
+      this.pageToShow = -1;
     }
   }
 

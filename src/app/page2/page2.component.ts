@@ -47,7 +47,7 @@ export class Page2Component implements OnInit, AfterViewInit  {
     const ownQuestions = this.questions.filter(q => q.isOwn);
     if (commonQuestions.every(question => (question.estimate || question.answer)) && ownQuestions.every(q => q.text)) {
       const body = JSON.stringify(this.questions);
-      this.httpClient.post('https://5b3943cfcda47d5c7885c5e06e3d8361.m.pipedream.net', body)
+      this.httpClient.post('https://c0d1a05f981d1b15d231e9a86e2ce39f.m.pipedream.net', body)
         .subscribe(response => {
           const message = 'Анкету получила';
           const action = 'Успешно!';

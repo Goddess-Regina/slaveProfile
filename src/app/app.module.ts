@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentDialogComponent } from './comment-dialog/comment-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PageEndComponent } from './page-end/page-end.component';
+import { PageResultComponent } from './page-result/page-result.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PageEndComponent } from './page-end/page-end.component';
     Page1Component,
     Page2Component,
     CommentDialogComponent,
-    PageEndComponent
+    PageEndComponent,
+    PageResultComponent
   ],
   imports: [
     BrowserModule,

@@ -63,7 +63,7 @@
             <!-- Name Column -->
             <ng-container matColumnDef="comment" >
               <mat-header-cell *matHeaderCellDef> Коментарий <br/> (по желанию)</mat-header-cell>
-              <mat-cell *matCellDef="let question;">
+              <mat-cell *matCellDef="let question;" >
                 <span class="mobile-label">Коментарий <br/> (по желанию)</span>
                 <button mat-stroked-button (click)="goToComment(question)" color="primary">
                   {{question.comment ? 'Исправить коментарий' : 'Добавить коментарий'}}
@@ -84,7 +84,7 @@
 
 <div class="send-result">
   <button mat-raised-button color="accent" id="continue-button" (click)="sendResult()">
-    Отправить результаты
+    Отправить анкету
   </button>
 </div>
 
