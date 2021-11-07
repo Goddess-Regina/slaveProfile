@@ -42,6 +42,12 @@ export class PageResultComponent implements OnInit {
       .subscribe(data => {
         console.log('profiles3', data);
       });
+
+    this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
+      , { headers })
+      .subscribe(data => {
+        console.log('profiles4', data);
+      });
   }
 
 
