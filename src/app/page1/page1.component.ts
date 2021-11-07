@@ -20,10 +20,10 @@ export class Page1Component implements OnInit {
     this.questionsService.questionsReplaySubject.subscribe(questions => this.questions = questions);
 
 
-/*    this.httpClient.post('https://5b3943cfcda47d5c7885c5e06e3d8361.m.pipedream.net', 'Я заполняю')
+    this.httpClient.post('https://5b3943cfcda47d5c7885c5e06e3d8361.m.pipedream.net', 'Я заполняю (Регина)')
       .subscribe(response => {
         console.log('');
-      });*/
+      });
   }
 
 

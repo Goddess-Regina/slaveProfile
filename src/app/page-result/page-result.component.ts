@@ -13,7 +13,10 @@ export class PageResultComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-     this.getProfiles1();
+    this.getData().subscribe(data => {
+      console.log('profiles2', data);
+    });
+     //this.getProfiles1();
   }
 
 
@@ -52,5 +55,18 @@ export class PageResultComponent implements OnInit {
       });
   }
 
-
+  getData(): Observable<any> {
+    return from(
+      fetch(
+        'https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event', // the url you are trying to access
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: 'Bearer 76c030ab71daae5908437a13af8bec91'
+          },
+          method: 'GET', // GET, POST, PUT, DELETE
+          mode: 'no-cors' // the most important option
+        }
+      ));
+  }
 }

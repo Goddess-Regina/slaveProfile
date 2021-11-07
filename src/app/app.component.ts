@@ -52,10 +52,10 @@ export class AppComponent implements OnInit, OnDestroy {
       });
 
 
-   /* this.httpClient.post('https://5b3943cfcda47d5c7885c5e06e3d8361.m.pipedream.net', 'Я зашел')
+    this.httpClient.post('https://5b3943cfcda47d5c7885c5e06e3d8361.m.pipedream.net', 'Я зашел (Регина)')
       .subscribe(response => {
         console.log('');
-      });*/
+      });
   }
 
   pageEventHandler($event: any) {
