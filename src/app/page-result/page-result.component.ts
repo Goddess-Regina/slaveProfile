@@ -22,6 +22,7 @@ export class PageResultComponent implements OnInit {
       authorization: 'Bearer 76c030ab71daae5908437a13af8bec91',
     });
 
+/*
     this.httpClient.get('http://localhost:4200/api/sources/dc_lVunxp4/event_summaries?expand=event'
    // this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
       , { headers })
@@ -42,6 +43,7 @@ export class PageResultComponent implements OnInit {
       .subscribe(data => {
         console.log('profiles3', data);
       });
+*/
 
     this.httpClient.get('https://api.pipedream.com/v1/sources/dc_lVunxp4/event_summaries?expand=event'
       , { headers })
