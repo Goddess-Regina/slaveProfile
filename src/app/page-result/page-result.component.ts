@@ -13,10 +13,10 @@ export class PageResultComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.getData().subscribe(data => {
+/*    this.getData().subscribe(data => {
       console.log('profiles2', data);
-    });
-     //this.getProfiles1();
+    });*/
+     this.getProfiles1();
   }
 
 
